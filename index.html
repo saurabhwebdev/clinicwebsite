@@ -82,21 +82,21 @@
         <input id="my-drawer-3" type="checkbox" class="drawer-toggle" /> 
         <div class="drawer-content flex flex-col">
             <!-- Navbar -->
-            <div class="w-full navbar bg-base-300 fixed top-0 z-50 shadow-lg">
+            <div class="w-full navbar bg-white fixed top-0 z-50 shadow-lg">
                 <div class="flex-none lg:hidden">
-                    <label for="my-drawer-3" class="btn btn-square btn-ghost">
+                    <label for="my-drawer-3" class="btn btn-square btn-ghost text-gray-700">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </label>
                 </div> 
-                <div class="flex-1 px-2 mx-2 text-xl font-semibold">ModernSmile Dental</div>
+                <div class="flex-1 px-2 mx-2 text-xl font-semibold text-gray-800">DenToons</div>
                 <div class="flex-none hidden lg:block">
                     <ul class="menu menu-horizontal text-lg">
-                        <li><a href="#home" class="rounded-full hover:bg-primary hover:text-white transition-all">Home</a></li>
-                        <li><a href="#services" class="rounded-full hover:bg-primary hover:text-white transition-all">Services</a></li>
-                        <li><a href="#about" class="rounded-full hover:bg-primary hover:text-white transition-all">About</a></li>
-                        <li><a href="#testimonials" class="rounded-full hover:bg-primary hover:text-white transition-all">Testimonials</a></li>
-                        <li><a href="#contact" class="rounded-full hover:bg-primary hover:text-white transition-all">Contact</a></li>
-                        <li><label for="booking-modal" class="btn btn-primary rounded-full">Book Appointment</label></li>
+                        <li><a href="#home" class="rounded-full hover:bg-blue-500 hover:text-white transition-all text-gray-700">Home</a></li>
+                        <li><a href="#services" class="rounded-full hover:bg-blue-500 hover:text-white transition-all text-gray-700">Services</a></li>
+                        <li><a href="#about" class="rounded-full hover:bg-blue-500 hover:text-white transition-all text-gray-700">About</a></li>
+                        <li><a href="#testimonials" class="rounded-full hover:bg-blue-500 hover:text-white transition-all text-gray-700">Testimonials</a></li>
+                        <li><a href="#contact" class="rounded-full hover:bg-blue-500 hover:text-white transition-all text-gray-700">Contact</a></li>
+                        <li><label for="booking-modal" class="btn bg-blue-500 hover:bg-blue-600 text-white rounded-full border-none">Book Appointment</label></li>
                     </ul>
                 </div>
             </div>
@@ -253,14 +253,14 @@
                                 <i class="fas fa-certificate text-4xl"></i>
                             </div>
                             <div class="stat-title text-lg text-white">Years of Experience</div>
-                            <div class="stat-value text-white">20+</div>
+                            <div class="stat-value text-white">10+</div>
                         </div>
                         <div class="stat">
                             <div class="stat-figure text-white">
                                 <i class="fas fa-star text-4xl"></i>
                             </div>
                             <div class="stat-title text-lg text-white">5-Star Reviews</div>
-                            <div class="stat-value text-white">1,000+</div>
+                            <div class="stat-value text-white">500+</div>
                         </div>
                     </div>
                 </div>
@@ -397,27 +397,36 @@
                 </div>
             </div>
 
-            <footer class="footer p-10 bg-neutral text-neutral-content">
+            <footer class="footer p-10 bg-gradient-to-r from-blue-500 to-blue-600 text-white">
                 <div>
-                    <span class="footer-title">Services</span> 
+                    <span class="footer-title opacity-75">Services</span> 
                     <a class="link link-hover" onclick="openModal('general-dentistry-modal')">General Dentistry</a>
                     <a class="link link-hover" onclick="openModal('cosmetic-dentistry-modal')">Cosmetic Dentistry</a>
                     <a class="link link-hover" onclick="openModal('dental-implants-modal')">Dental Implants</a>
                     <a class="link link-hover" onclick="openModal('orthodontics-modal')">Orthodontics</a>
                 </div> 
                 <div>
-                    <span class="footer-title">Company</span> 
+                    <span class="footer-title opacity-75">Company</span> 
                     <a href="#home" class="link link-hover">Home</a>
                     <a href="#about" class="link link-hover">About us</a>
                     <a href="#contact" class="link link-hover">Contact</a>
                 </div> 
                 <div>
-                    <span class="footer-title">Legal</span> 
+                    <span class="footer-title opacity-75">Legal</span> 
                     <a class="link link-hover" onclick="openModal('terms-modal')">Terms of use</a>
                     <a class="link link-hover" onclick="openModal('privacy-modal')">Privacy policy</a>
                     <a class="link link-hover" onclick="openModal('cookie-modal')">Cookie policy</a>
                 </div>
             </footer>
+            <div class="py-4 text-center bg-blue-600 text-white">
+                <p class="text-sm">
+                    Made with 
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block text-red-300" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                    </svg>
+                    in India
+                </p>
+            </div>
         </div> 
         <div class="drawer-side">
             <label for="my-drawer-3" class="drawer-overlay"></label> 
@@ -456,7 +465,7 @@
                     <label class="label">
                         <span class="label-text">Phone</span>
                     </label>
-                    <input type="tel" name="phone" placeholder="Your Phone Number" class="input input-bordered" required />
+                    <input type="tel" name="phone" id="phone" placeholder="Your Phone Number" class="input input-bordered" required />
                 </div>
                 <div class="form-control">
                     <label class="label">
@@ -486,6 +495,21 @@
             </form>
         </div>
     </div>
+    
+    <!-- Add these in the <head> section of your HTML -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var input = document.querySelector("#phone");
+        window.intlTelInput(input, {
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+            preferredCountries: ['in'], // Add your preferred countries here
+            separateDialCode: true
+        });
+    });
+    </script>
 
      <!-- Service Modals -->
      <input type="checkbox" id="general-dentistry-modal" class="modal-toggle" />
