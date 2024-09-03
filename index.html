@@ -53,6 +53,24 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        .captcha-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .captcha-code {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 0.5rem;
+            padding: 0.5rem;
+            background-color: #f0f0f0;
+            border-radius: 0.5rem;
+            user-select: none;
+        }
+        .refresh-captcha {
+            margin-left: 1rem;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="text-base">
@@ -267,6 +285,16 @@
                                     </label>
                                     <textarea name="message" class="textarea textarea-bordered text-lg" placeholder="Your Message" required></textarea>
                                 </div>
+                                <div class="form-control mb-4">
+                                    <label class="label">
+                                        <span class="label-text text-lg">CAPTCHA</span>
+                                    </label>
+                                    <div class="captcha-container">
+                                        <span id="contact-captcha" class="captcha-code"></span>
+                                        <i class="fas fa-sync-alt refresh-captcha" onclick="refreshCaptcha('contact')"></i>
+                                    </div>
+                                    <input type="text" name="captcha" placeholder="Enter CAPTCHA" class="input input-bordered text-lg" required />
+                                </div>
                                 <button type="submit" class="btn btn-primary btn-lg rounded-full">Send Message</button>
                             </form>
                         </div>
@@ -358,6 +386,16 @@
                     </label>
                     <textarea name="reason" class="textarea textarea-bordered" placeholder="Brief description of your dental needs"></textarea>
                 </div>
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">CAPTCHA</span>
+                    </label>
+                    <div class="captcha-container">
+                        <span id="booking-captcha" class="captcha-code"></span>
+                        <i class="fas fa-sync-alt refresh-captcha" onclick="refreshCaptcha('booking')"></i>
+                    </div>
+                    <input type="text" name="captcha" placeholder="Enter CAPTCHA" class="input input-bordered" required />
+                </div>
                 <div class="modal-action">
                     <button type="submit" class="btn btn-primary rounded-full">Book Appointment</button>
                 </div>
@@ -365,202 +403,202 @@
         </div>
     </div>
 
-    <!-- Service Modals -->
-    <input type="checkbox" id="general-dentistry-modal" class="modal-toggle" />
-    <div class="modal">
-        <div class="modal-box relative">
-            <label for="general-dentistry-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-            <h3 class="font-bold text-lg">General Dentistry</h3>
-            <p class="py-4">Our general dentistry services include routine check-ups, cleanings, fillings, and more. We focus on preventive care to keep your teeth healthy and strong.</p>
-            <div class="modal-action">
-                <label for="booking-modal" class="btn btn-primary">Book Appointment</label>
-            </div>
-        </div>
-    </div>
-
-    <input type="checkbox" id="cosmetic-dentistry-modal" class="modal-toggle" />
-    <div class="modal">
-        <div class="modal-box relative">
-            <label for="cosmetic-dentistry-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-            <h3 class="font-bold text-lg">Cosmetic Dentistry</h3>
-            <p class="py-4">Transform your smile with our cosmetic dentistry services. We offer teeth whitening, veneers, bonding, and more to help you achieve the perfect smile.</p>
-            <div class="modal-action">
-                <label for="booking-modal" class="btn btn-primary">Book Appointment</label>
-            </div>
-        </div>
-    </div>
-
-    <input type="checkbox" id="dental-implants-modal" class="modal-toggle" />
-    <div class="modal">
-        <div class="modal-box relative">
-            <label for="dental-implants-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-            <h3 class="font-bold text-lg">Dental Implants</h3>
-            <p class="py-4">Replace missing teeth with our state-of-the-art dental implants. They look, feel, and function just like natural teeth, restoring your smile and confidence.</p>
-            <div class="modal-action">
-                <label for="booking-modal" class="btn btn-primary">Book Appointment</label>
-            </div>
-        </div>
-    </div>
-
-    <input type="checkbox" id="orthodontics-modal" class="modal-toggle" />
-    <div class="modal">
-        <div class="modal-box relative">
-            <label for="orthodontics-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-            <h3 class="font-bold text-lg">Orthodontics</h3>
-            <p class="py-4">Straighten your teeth and improve your bite with our orthodontic treatments. We offer traditional braces, clear aligners, and more.</p>
-            <div class="modal-action">
-                <label for="booking-modal" class="btn btn-primary">Book Appointment</label>
-            </div>
-        </div>
-    </div>
-
-    <!-- Legal Modals -->
-    <input type="checkbox" id="terms-modal" class="modal-toggle" />
-    <div class="modal">
-        <div class="modal-box relative">
-            <label for="terms-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-            <h3 class="font-bold text-lg mb-4">Terms of Use</h3>
-            <div class="prose max-w-none">
-                <p>Welcome to ModernSmile Dental. By using our website, you agree to comply with and be bound by the following terms and conditions of use:</p>
-                
-                <h4>1. Agreement to Terms</h4>
-                <p>By accessing our website, you agree to be bound by these Terms of Use and all applicable laws and regulations. If you do not agree with any part of these terms, you may not use our website.</p>
-                
-                <h4>2. Use License</h4>
-                <p>Permission is granted to temporarily download one copy of the materials on ModernSmile Dental's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title.</p>
-                
-                <h4>3. Disclaimer</h4>
-                <p>The materials on ModernSmile Dental's website are provided on an 'as is' basis. ModernSmile Dental makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
-                
-                <h4>4. Limitations</h4>
-                <p>In no event shall ModernSmile Dental or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on ModernSmile Dental's website.</p>
-                
-                <h4>5. Revisions and Errata</h4>
-                <p>The materials appearing on ModernSmile Dental's website could include technical, typographical, or photographic errors. ModernSmile Dental does not warrant that any of the materials on its website are accurate, complete or current.</p>
-                
-                <h4>6. Links</h4>
-                <p>ModernSmile Dental has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by ModernSmile Dental of the site. Use of any such linked website is at the user's own risk.</p>
-                
-                <h4>7. Modifications</h4>
-                <p>ModernSmile Dental may revise these terms of use for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these Terms of Use.</p>
-                
-                <h4>8. Governing Law</h4>
-                <p>These terms and conditions are governed by and construed in accordance with the laws of [Your State/Country] and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.</p>
-            </div>
-        </div>
-    </div>
-
-    <input type="checkbox" id="privacy-modal" class="modal-toggle" />
-    <div class="modal">
-        <div class="modal-box relative">
-            <label for="privacy-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-            <h3 class="font-bold text-2xl mb-4">Privacy Policy</h3>
-            <div class="prose max-w-none overflow-y-auto max-h-[60vh]">
-                <p class="text-sm text-gray-500 mb-4">Last updated: [Current Date]</p>
-                
-                <p class="mb-4">At ModernSmile Dental, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.</p>
-                
-                <h4 class="text-xl font-semibold mb-2">Information We Collect</h4>
-                <p class="mb-4">We collect personal information that you voluntarily provide to us when you:</p>
-                <ul class="list-disc list-inside mb-4">
-                    <li>Schedule an appointment</li>
-                    <li>Fill out a contact form</li>
-                    <li>Sign up for our newsletter</li>
-                    <li>Participate in surveys or promotions</li>
-                </ul>
-                
-                <h4 class="text-xl font-semibold mb-2">How We Use Your Information</h4>
-                <p class="mb-4">We may use the information we collect for various purposes, including:</p>
-                <ul class="list-disc list-inside mb-4">
-                    <li>Providing and maintaining our services</li>
-                    <li>Notifying you about changes to our services</li>
-                    <li>Allowing you to participate in interactive features</li>
-                    <li>Providing customer support</li>
-                    <li>Gathering analysis or valuable information to improve our services</li>
-                    <li>Monitoring the usage of our services</li>
-                </ul>
-                
-                <h4 class="text-xl font-semibold mb-2">Disclosure of Your Information</h4>
-                <p class="mb-4">We may disclose your personal information in the following situations:</p>
-                <ul class="list-disc list-inside mb-4">
-                    <li>To comply with a legal obligation</li>
-                    <li>To protect and defend our rights or property</li>
-                    <li>To prevent or investigate possible wrongdoing in connection with our services</li>
-                    <li>To protect the personal safety of users of our services or the public</li>
-                    <li>To protect against legal liability</li>
-                </ul>
-                
-                <h4 class="text-xl font-semibold mb-2">Security of Your Information</h4>
-                <p class="mb-4">We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.</p>
-                
-                <h4 class="text-xl font-semibold mb-2">Your Data Protection Rights</h4>
-                <p class="mb-4">Depending on your location, you may have certain rights regarding your personal information, such as:</p>
-                <ul class="list-disc list-inside mb-4">
-                    <li>The right to access your personal information</li>
-                    <li>The right to rectify or update your personal information</li>
-                    <li>The right to erase your personal information</li>
-                    <li>The right to restrict the processing of your personal information</li>
-                    <li>The right to object to the processing of your personal information</li>
-                    <li>The right to data portability</li>
-                </ul>
-                
-                <h4 class="text-xl font-semibold mb-2">Changes to This Privacy Policy</h4>
-                <p class="mb-4">We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date at the top of this Privacy Policy.</p>
-                
-                <h4 class="text-xl font-semibold mb-2">Contact Us</h4>
-                <p class="mb-4">If you have any questions about this Privacy Policy, please contact us at:</p>
-                <p class="mb-4">
-                    ModernSmile Dental<br>
-                    123 Dental Street<br>
-                    Cityville, State 12345<br>
-                    Email: privacy@modernsmile.com<br>
-                    Phone: (123) 456-7890
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <input type="checkbox" id="cookie-modal" class="modal-toggle" />
-    <div class="modal">
-        <div class="modal-box relative">
-            <label for="cookie-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-            <h3 class="font-bold text-2xl mb-4">Cookie Policy</h3>
-            <div class="prose max-w-none overflow-y-auto max-h-[60vh]">
-                <p class="text-sm text-gray-500 mb-4">Last updated: [Current Date]</p>
-                
-                <p class="mb-4">This Cookie Policy explains how ModernSmile Dental ("we", "us", or "our") uses cookies and similar technologies to recognize you when you visit our website at [Your Website URL] ("Website"). It explains what these technologies are and why we use them, as well as your rights to control our use of them.</p>
-                
-                <h4 class="text-xl font-semibold mb-2">What are cookies?</h4>
-                <p class="mb-4">Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information.</p>
-                
-                <h4 class="text-xl font-semibold mb-2">Why do we use cookies?</h4>
-                <p class="mb-4">We use first-party and third-party cookies for several reasons. Some cookies are required for technical reasons in order for our Website to operate, and we refer to these as "essential" or "strictly necessary" cookies. Other cookies enable us to track and target the interests of our users to enhance the experience on our Website. Third parties serve cookies through our Website for advertising, analytics and other purposes.</p>
-                
-                <h4 class="text-xl font-semibold mb-2">Types of cookies we use</h4>
-                <ul class="list-disc list-inside mb-4">
-                    <li><strong>Essential cookies:</strong> These cookies are strictly necessary to provide you with services available through our Website and to use some of its features.</li>
-                    <li><strong>Performance cookies:</strong> These cookies are used to enhance the performance and functionality of our Website but are non-essential to their use.</li>
-                    <li><strong>Analytics cookies:</strong> These cookies collect information that is used either in aggregate form to help us understand how our Website is being used or how effective our marketing campaigns are.</li>
-                    <li><strong>Marketing cookies:</strong> These cookies are used to make advertising messages more relevant to you and your interests.</li>
-                </ul>
-                
-                <h4 class="text-xl font-semibold mb-2">Your choices regarding cookies</h4>
-                <p class="mb-4">If you prefer to avoid the use of cookies on the Website, first you must disable the use of cookies in your browser and then delete the cookies saved in your browser associated with this website. You may use this option for preventing the use of cookies at any time.</p>
-                
-                <h4 class="text-xl font-semibold mb-2">Changes to this Cookie Policy</h4>
-                <p class="mb-4">We may update this Cookie Policy from time to time in order to reflect, for example, changes to the cookies we use or for other operational, legal or regulatory reasons. Please therefore re-visit this Cookie Policy regularly to stay informed about our use of cookies and related technologies.</p>
-                
-                <h4 class="text-xl font-semibold mb-2">Contact us</h4>
-                <p class="mb-4">If you have any questions about our use of cookies or other technologies, please contact us at:</p>
-                <p>
-                    ModernSmile Dental<br>
-                    [Your Address]<br>
-                    Email: [Your Email]<br>
-                    Phone: [Your Phone Number]
-                </p>
-            </div>
-        </div>
-    </div>
+     <!-- Service Modals -->
+     <input type="checkbox" id="general-dentistry-modal" class="modal-toggle" />
+     <div class="modal">
+         <div class="modal-box relative">
+             <label for="general-dentistry-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+             <h3 class="font-bold text-lg">General Dentistry</h3>
+             <p class="py-4">Our general dentistry services include routine check-ups, cleanings, fillings, and more. We focus on preventive care to keep your teeth healthy and strong.</p>
+             <div class="modal-action">
+                 <label for="booking-modal" class="btn btn-primary">Book Appointment</label>
+             </div>
+         </div>
+     </div>
+ 
+     <input type="checkbox" id="cosmetic-dentistry-modal" class="modal-toggle" />
+     <div class="modal">
+         <div class="modal-box relative">
+             <label for="cosmetic-dentistry-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+             <h3 class="font-bold text-lg">Cosmetic Dentistry</h3>
+             <p class="py-4">Transform your smile with our cosmetic dentistry services. We offer teeth whitening, veneers, bonding, and more to help you achieve the perfect smile.</p>
+             <div class="modal-action">
+                 <label for="booking-modal" class="btn btn-primary">Book Appointment</label>
+             </div>
+         </div>
+     </div>
+ 
+     <input type="checkbox" id="dental-implants-modal" class="modal-toggle" />
+     <div class="modal">
+         <div class="modal-box relative">
+             <label for="dental-implants-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+             <h3 class="font-bold text-lg">Dental Implants</h3>
+             <p class="py-4">Replace missing teeth with our state-of-the-art dental implants. They look, feel, and function just like natural teeth, restoring your smile and confidence.</p>
+             <div class="modal-action">
+                 <label for="booking-modal" class="btn btn-primary">Book Appointment</label>
+             </div>
+         </div>
+     </div>
+ 
+     <input type="checkbox" id="orthodontics-modal" class="modal-toggle" />
+     <div class="modal">
+         <div class="modal-box relative">
+             <label for="orthodontics-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+             <h3 class="font-bold text-lg">Orthodontics</h3>
+             <p class="py-4">Straighten your teeth and improve your bite with our orthodontic treatments. We offer traditional braces, clear aligners, and more.</p>
+             <div class="modal-action">
+                 <label for="booking-modal" class="btn btn-primary">Book Appointment</label>
+             </div>
+         </div>
+     </div>
+ 
+     <!-- Legal Modals -->
+     <input type="checkbox" id="terms-modal" class="modal-toggle" />
+     <div class="modal">
+         <div class="modal-box relative">
+             <label for="terms-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+             <h3 class="font-bold text-lg mb-4">Terms of Use</h3>
+             <div class="prose max-w-none">
+                 <p>Welcome to ModernSmile Dental. By using our website, you agree to comply with and be bound by the following terms and conditions of use:</p>
+                 
+                 <h4>1. Agreement to Terms</h4>
+                 <p>By accessing our website, you agree to be bound by these Terms of Use and all applicable laws and regulations. If you do not agree with any part of these terms, you may not use our website.</p>
+                 
+                 <h4>2. Use License</h4>
+                 <p>Permission is granted to temporarily download one copy of the materials on ModernSmile Dental's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title.</p>
+                 
+                 <h4>3. Disclaimer</h4>
+                 <p>The materials on ModernSmile Dental's website are provided on an 'as is' basis. ModernSmile Dental makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
+                 
+                 <h4>4. Limitations</h4>
+                 <p>In no event shall ModernSmile Dental or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on ModernSmile Dental's website.</p>
+                 
+                 <h4>5. Revisions and Errata</h4>
+                 <p>The materials appearing on ModernSmile Dental's website could include technical, typographical, or photographic errors. ModernSmile Dental does not warrant that any of the materials on its website are accurate, complete or current.</p>
+                 
+                 <h4>6. Links</h4>
+                 <p>ModernSmile Dental has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by ModernSmile Dental of the site. Use of any such linked website is at the user's own risk.</p>
+                 
+                 <h4>7. Modifications</h4>
+                 <p>ModernSmile Dental may revise these terms of use for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these Terms of Use.</p>
+                 
+                 <h4>8. Governing Law</h4>
+                 <p>These terms and conditions are governed by and construed in accordance with the laws of [Your State/Country] and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.</p>
+             </div>
+         </div>
+     </div>
+ 
+     <input type="checkbox" id="privacy-modal" class="modal-toggle" />
+     <div class="modal">
+         <div class="modal-box relative">
+             <label for="privacy-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+             <h3 class="font-bold text-2xl mb-4">Privacy Policy</h3>
+             <div class="prose max-w-none overflow-y-auto max-h-[60vh]">
+                 <p class="text-sm text-gray-500 mb-4">Last updated: [Current Date]</p>
+                 
+                 <p class="mb-4">At ModernSmile Dental, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.</p>
+                 
+                 <h4 class="text-xl font-semibold mb-2">Information We Collect</h4>
+                 <p class="mb-4">We collect personal information that you voluntarily provide to us when you:</p>
+                 <ul class="list-disc list-inside mb-4">
+                     <li>Schedule an appointment</li>
+                     <li>Fill out a contact form</li>
+                     <li>Sign up for our newsletter</li>
+                     <li>Participate in surveys or promotions</li>
+                 </ul>
+                 
+                 <h4 class="text-xl font-semibold mb-2">How We Use Your Information</h4>
+                 <p class="mb-4">We may use the information we collect for various purposes, including:</p>
+                 <ul class="list-disc list-inside mb-4">
+                     <li>Providing and maintaining our services</li>
+                     <li>Notifying you about changes to our services</li>
+                     <li>Allowing you to participate in interactive features</li>
+                     <li>Providing customer support</li>
+                     <li>Gathering analysis or valuable information to improve our services</li>
+                     <li>Monitoring the usage of our services</li>
+                 </ul>
+                 
+                 <h4 class="text-xl font-semibold mb-2">Disclosure of Your Information</h4>
+                 <p class="mb-4">We may disclose your personal information in the following situations:</p>
+                 <ul class="list-disc list-inside mb-4">
+                     <li>To comply with a legal obligation</li>
+                     <li>To protect and defend our rights or property</li>
+                     <li>To prevent or investigate possible wrongdoing in connection with our services</li>
+                     <li>To protect the personal safety of users of our services or the public</li>
+                     <li>To protect against legal liability</li>
+                 </ul>
+                 
+                 <h4 class="text-xl font-semibold mb-2">Security of Your Information</h4>
+                 <p class="mb-4">We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.</p>
+                 
+                 <h4 class="text-xl font-semibold mb-2">Your Data Protection Rights</h4>
+                 <p class="mb-4">Depending on your location, you may have certain rights regarding your personal information, such as:</p>
+                 <ul class="list-disc list-inside mb-4">
+                     <li>The right to access your personal information</li>
+                     <li>The right to rectify or update your personal information</li>
+                     <li>The right to erase your personal information</li>
+                     <li>The right to restrict the processing of your personal information</li>
+                     <li>The right to object to the processing of your personal information</li>
+                     <li>The right to data portability</li>
+                 </ul>
+                 
+                 <h4 class="text-xl font-semibold mb-2">Changes to This Privacy Policy</h4>
+                 <p class="mb-4">We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date at the top of this Privacy Policy.</p>
+                 
+                 <h4 class="text-xl font-semibold mb-2">Contact Us</h4>
+                 <p class="mb-4">If you have any questions about this Privacy Policy, please contact us at:</p>
+                 <p class="mb-4">
+                     ModernSmile Dental<br>
+                     123 Dental Street<br>
+                     Cityville, State 12345<br>
+                     Email: privacy@modernsmile.com<br>
+                     Phone: (123) 456-7890
+                 </p>
+             </div>
+         </div>
+     </div>
+ 
+     <input type="checkbox" id="cookie-modal" class="modal-toggle" />
+     <div class="modal">
+         <div class="modal-box relative">
+             <label for="cookie-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+             <h3 class="font-bold text-2xl mb-4">Cookie Policy</h3>
+             <div class="prose max-w-none overflow-y-auto max-h-[60vh]">
+                 <p class="text-sm text-gray-500 mb-4">Last updated: [Current Date]</p>
+                 
+                 <p class="mb-4">This Cookie Policy explains how ModernSmile Dental ("we", "us", or "our") uses cookies and similar technologies to recognize you when you visit our website at [Your Website URL] ("Website"). It explains what these technologies are and why we use them, as well as your rights to control our use of them.</p>
+                 
+                 <h4 class="text-xl font-semibold mb-2">What are cookies?</h4>
+                 <p class="mb-4">Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information.</p>
+                 
+                 <h4 class="text-xl font-semibold mb-2">Why do we use cookies?</h4>
+                 <p class="mb-4">We use first-party and third-party cookies for several reasons. Some cookies are required for technical reasons in order for our Website to operate, and we refer to these as "essential" or "strictly necessary" cookies. Other cookies enable us to track and target the interests of our users to enhance the experience on our Website. Third parties serve cookies through our Website for advertising, analytics and other purposes.</p>
+                 
+                 <h4 class="text-xl font-semibold mb-2">Types of cookies we use</h4>
+                 <ul class="list-disc list-inside mb-4">
+                     <li><strong>Essential cookies:</strong> These cookies are strictly necessary to provide you with services available through our Website and to use some of its features.</li>
+                     <li><strong>Performance cookies:</strong> These cookies are used to enhance the performance and functionality of our Website but are non-essential to their use.</li>
+                     <li><strong>Analytics cookies:</strong> These cookies collect information that is used either in aggregate form to help us understand how our Website is being used or how effective our marketing campaigns are.</li>
+                     <li><strong>Marketing cookies:</strong> These cookies are used to make advertising messages more relevant to you and your interests.</li>
+                 </ul>
+                 
+                 <h4 class="text-xl font-semibold mb-2">Your choices regarding cookies</h4>
+                 <p class="mb-4">If you prefer to avoid the use of cookies on the Website, first you must disable the use of cookies in your browser and then delete the cookies saved in your browser associated with this website. You may use this option for preventing the use of cookies at any time.</p>
+                 
+                 <h4 class="text-xl font-semibold mb-2">Changes to this Cookie Policy</h4>
+                 <p class="mb-4">We may update this Cookie Policy from time to time in order to reflect, for example, changes to the cookies we use or for other operational, legal or regulatory reasons. Please therefore re-visit this Cookie Policy regularly to stay informed about our use of cookies and related technologies.</p>
+                 
+                 <h4 class="text-xl font-semibold mb-2">Contact us</h4>
+                 <p class="mb-4">If you have any questions about our use of cookies or other technologies, please contact us at:</p>
+                 <p>
+                     ModernSmile Dental<br>
+                     [Your Address]<br>
+                     Email: [Your Email]<br>
+                     Phone: [Your Phone Number]
+                 </p>
+             </div>
+         </div>
+     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
@@ -607,9 +645,42 @@
             document.getElementById('loading-overlay').style.display = 'none';
         }
 
+        // Generate random CAPTCHA code
+        function generateCaptcha() {
+            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789';
+            let captcha = '';
+            for (let i = 0; i < 6; i++) {
+                captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return captcha;
+        }
+
+        // Refresh CAPTCHA
+        function refreshCaptcha(formType) {
+            const captcha = generateCaptcha();
+            document.getElementById(`${formType}-captcha`).textContent = captcha;
+            document.getElementById(`${formType}-form`).dataset.captcha = captcha;
+        }
+
+        // Initialize CAPTCHAs
+        refreshCaptcha('contact');
+        refreshCaptcha('booking');
+
         // Contact form submission
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            const userCaptcha = this.elements['captcha'].value;
+            const correctCaptcha = this.dataset.captcha;
+
+            if (userCaptcha.toLowerCase() !== correctCaptcha.toLowerCase()) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Invalid CAPTCHA',
+                    text: 'Please enter the correct CAPTCHA code.',
+                });
+                return;
+            }
+
             showLoading();
             const formData = new FormData(this);
             fetch('https://script.google.com/macros/s/AKfycbx_IrHKW1se_ujJX9I4HdAk7G6CQygDfUPPOMh5bhY-OUNkr90mOIAvzcV902wGbATE/exec', {
@@ -625,6 +696,7 @@
                     text: 'Your message has been sent. We will get back to you soon.',
                 });
                 this.reset();
+                refreshCaptcha('contact');
             })
             .catch(error => {
                 hideLoading();
@@ -640,6 +712,18 @@
         // Booking form submission
         document.getElementById('booking-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            const userCaptcha = this.elements['captcha'].value;
+            const correctCaptcha = this.dataset.captcha;
+
+            if (userCaptcha.toLowerCase() !== correctCaptcha.toLowerCase()) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Invalid CAPTCHA',
+                    text: 'Please enter the correct CAPTCHA code.',
+                });
+                return;
+            }
+
             showLoading();
             const formData = new FormData(this);
             fetch('https://script.google.com/macros/s/AKfycbx_IrHKW1se_ujJX9I4HdAk7G6CQygDfUPPOMh5bhY-OUNkr90mOIAvzcV902wGbATE/exec', {
@@ -656,6 +740,7 @@
                 });
                 this.reset();
                 document.getElementById('booking-modal').checked = false;
+                refreshCaptcha('booking');
             })
             .catch(error => {
                 hideLoading();
@@ -675,3 +760,4 @@
     </script>
 </body>
 </html>
+    
