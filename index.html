@@ -101,103 +101,186 @@
                 </div>
             </div>
             <!-- Page content here -->
-            <div id="home" class="hero min-h-screen bg-base-200 pt-20" style="background-image: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'); background-size: cover;">
-                <div class="hero-overlay bg-opacity-60"></div>
-                <div class="hero-content text-center text-neutral-content">
-                    <div class="max-w-md">
-                        <h1 class="mb-5 text-5xl font-bold">Your Perfect Smile Awaits!</h1>
-                        <p class="mb-5">Experience state-of-the-art dental care with our team of expert professionals. We're committed to giving you the smile you've always dreamed of.</p>
-                        <label for="booking-modal" class="btn btn-primary btn-lg rounded-full">Book Appointment</label>
+            <div id="home" class="min-h-screen bg-gradient-to-r from-blue-500 to-cyan-500 pt-20">
+                <div class="container mx-auto px-4 py-16 flex flex-col lg:flex-row items-center justify-between">
+                    <div class="lg:w-1/2 text-white mb-10 lg:mb-0">
+                        <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">Your Perfect Smile Awaits!</h1>
+                        <p class="text-xl mb-8 leading-relaxed">Experience state-of-the-art dental care with our team of expert professionals. We're committed to giving you the smile you've always dreamed of.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <label for="booking-modal" class="btn btn-primary btn-lg rounded-full">Book Appointment</label>
+                            <a href="#services" class="btn btn-outline btn-lg rounded-full text-white border-white hover:bg-white hover:text-blue-500">Our Services</a>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 relative">
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" 
+                             alt="Dental care" 
+                             class="rounded-lg shadow-2xl w-full max-w-md mx-auto"
+                        />
+                        <div id="satisfactionCard" class="absolute -bottom-10 -right-10 bg-white p-6 rounded-lg shadow-xl hidden lg:block">
+                            <p class="text-blue-500 font-semibold text-xl mb-2">100% Satisfaction</p>
+                            <p class="text-gray-600">Our patients love their new smiles!</p>
+                        
+                            <style>
+                                @keyframes gentlePop {
+                                    0%, 100% {
+                                        transform: scale(1);
+                                        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                                    }
+                                    50% {
+                                        transform: scale(1.03);
+                                        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                                    }
+                                }
+                        
+                                #satisfactionCard {
+                                    animation: gentlePop 3s ease-in-out infinite;
+                                }
+                        
+                                #satisfactionCard:hover {
+                                    animation-play-state: paused;
+                                }
+                            </style>
+                        </div>
                     </div>
                 </div>
+                <!-- <div class="container mx-auto px-4 py-16">
+                    <h2 class="text-4xl font-bold text-white text-center mb-12">Why Choose Us?</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white rounded-lg shadow-xl p-6 transition-all duration-300 hover:scale-105">
+                            <div class="text-center mb-4">
+                                <i class="fas fa-tooth text-5xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold mb-4 text-center text-gray-800">Expert Care</h3>
+                            <p class="text-gray-600 text-center">Our team of skilled professionals ensures top-quality dental services.</p>
+                            <div class="mt-6 text-center">
+                                <a href="#services" class="text-blue-500 hover:text-blue-700 font-medium">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-xl p-6 transition-all duration-300 hover:scale-105">
+                            <div class="text-center mb-4">
+                                <i class="fas fa-smile-beam text-5xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold mb-4 text-center text-gray-800">Beautiful Smiles</h3>
+                            <p class="text-gray-600 text-center">We're dedicated to helping you achieve the perfect smile you deserve.</p>
+                            <div class="mt-6 text-center">
+                                <a href="#gallery" class="text-blue-500 hover:text-blue-700 font-medium">View Gallery</a>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-xl p-6 transition-all duration-300 hover:scale-105">
+                            <div class="text-center mb-4">
+                                <i class="fas fa-calendar-check text-5xl text-blue-500"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold mb-4 text-center text-gray-800">Easy Scheduling</h3>
+                            <p class="text-gray-600 text-center">Book your appointments online with our convenient scheduling system.</p>
+                            <div class="mt-6 text-center">
+                                <label for="booking-modal" class="text-blue-500 hover:text-blue-700 font-medium cursor-pointer">Schedule Now</label>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
             </div>
+            
+            <script>
+                // Add this script to enable hover effect on mobile devices
+                document.addEventListener('DOMContentLoaded', () => {
+                    const cards = document.querySelectorAll('.hover\\:scale-105');
+                    cards.forEach(card => {
+                        card.addEventListener('touchstart', () => {
+                            card.classList.add('scale-105');
+                        });
+                        card.addEventListener('touchend', () => {
+                            card.classList.remove('scale-105');
+                        });
+                    });
+                });
+            </script>
 
             <div id="services" class="container mx-auto py-16 px-4">
                 <h2 class="text-4xl font-bold text-center mb-8">Our Services</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all">
                         <figure class="px-10 pt-10">
-                            <i class="fas fa-tooth text-6xl text-primary"></i>
+                            <i class="fas fa-tooth text-6xl text-cyan-400"></i>
                         </figure>
                         <div class="card-body items-center text-center">
                             <h2 class="card-title text-2xl">General Dentistry</h2>
                             <p class="text-lg">Comprehensive care for all your dental needs.</p>
                             <div class="card-actions">
-                                <label for="general-dentistry-modal" class="btn btn-primary">Learn More</label>
+                                <label for="general-dentistry-modal" class="btn bg-cyan-400 hover:bg-cyan-500 text-white border-none">Learn More</label>
                             </div>
                         </div>
                     </div>
                     <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all">
                         <figure class="px-10 pt-10">
-                            <i class="fas fa-teeth-open text-6xl text-primary"></i>
+                            <i class="fas fa-teeth-open text-6xl text-cyan-400"></i>
                         </figure>
                         <div class="card-body items-center text-center">
                             <h2 class="card-title text-2xl">Cosmetic Dentistry</h2>
                             <p class="text-lg">Enhance your smile with our cosmetic treatments.</p>
                             <div class="card-actions">
-                                <label for="cosmetic-dentistry-modal" class="btn btn-primary">Learn More</label>
+                                <label for="cosmetic-dentistry-modal" class="btn bg-cyan-400 hover:bg-cyan-500 text-white border-none">Learn More</label>
                             </div>
                         </div>
                     </div>
                     <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all">
                         <figure class="px-10 pt-10">
-                            <i class="fas fa-x-ray text-6xl text-primary"></i>
+                            <i class="fas fa-x-ray text-6xl text-cyan-400"></i>
                         </figure>
                         <div class="card-body items-center text-center">
                             <h2 class="card-title text-2xl">Dental Implants</h2>
                             <p class="text-lg">Restore your smile with cutting-edge implant technology.</p>
                             <div class="card-actions">
-                                <label for="dental-implants-modal" class="btn btn-primary">Learn More</label>
+                                <label for="dental-implants-modal" class="btn bg-cyan-400 hover:bg-cyan-500 text-white border-none">Learn More</label>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="about" class="bg-base-200 py-16">
+            <div id="about" class="bg-gradient-to-r from-blue-500 to-cyan-500 py-16">
                 <div class="container mx-auto text-center px-4">
-                    <h2 class="text-4xl font-bold mb-8">Why Choose Us?</h2>
-                    <div class="stats shadow flex flex-col md:flex-row rounded-2xl">
+                    <h2 class="text-4xl font-bold mb-8 text-white">Why Choose Us?</h2>
+                    <div class="stats shadow flex flex-col md:flex-row rounded-2xl bg-white bg-opacity-20 backdrop-blur-lg">
                         <div class="stat">
-                            <div class="stat-figure text-primary">
+                            <div class="stat-figure text-white">
                                 <i class="fas fa-users text-4xl"></i>
                             </div>
-                            <div class="stat-title text-lg">Happy Patients</div>
-                            <div class="stat-value">5,000+</div>
+                            <div class="stat-title text-lg text-white">Happy Patients</div>
+                            <div class="stat-value text-white">5,000+</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-figure text-primary">
+                            <div class="stat-figure text-white">
                                 <i class="fas fa-certificate text-4xl"></i>
                             </div>
-                            <div class="stat-title text-lg">Years of Experience</div>
-                            <div class="stat-value">20+</div>
+                            <div class="stat-title text-lg text-white">Years of Experience</div>
+                            <div class="stat-value text-white">20+</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-figure text-primary">
+                            <div class="stat-figure text-white">
                                 <i class="fas fa-star text-4xl"></i>
                             </div>
-                            <div class="stat-title text-lg">5-Star Reviews</div>
-                            <div class="stat-value">1,000+</div>
+                            <div class="stat-title text-lg text-white">5-Star Reviews</div>
+                            <div class="stat-value text-white">1,000+</div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div id="testimonials" class="container mx-auto py-16 px-4">
-                <h2 class="text-4xl font-bold text-center mb-8">Testimonials</h2>
+                <h2 class="text-4xl font-bold text-center mb-8">Patient Testimonials</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card bg-base-100 shadow-xl">
                         <div class="card-body">
-                            <h2 class="card-title text-2xl">Amazing Service!</h2>
-                            <p class="text-lg">"I've never felt more comfortable at a dentist's office. The staff is friendly and professional."</p>
+                            <h2 class="card-title text-2xl">Exceptional Care!</h2>
+                            <p class="text-lg">"I've never felt more at ease in a dental clinic. The staff is warm, welcoming, and highly skilled."</p>
                             <div class="flex items-center mt-4">
                                 <div class="avatar">
                                     <div class="w-12 rounded-full">
-                                        <img src="https://i.pravatar.cc/150?img=1" alt="John D." />
+                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rajesh K." />
                                     </div>
                                 </div>
                                 <div class="ml-4">
-                                    <p class="font-semibold">John D.</p>
+                                    <p class="font-semibold">Rajesh K.</p>
                                     <div class="rating rating-sm">
                                         <input type="radio" name="rating-1" class="mask mask-star-2 bg-orange-400" checked />
                                         <input type="radio" name="rating-1" class="mask mask-star-2 bg-orange-400" checked />
@@ -211,16 +294,16 @@
                     </div>
                     <div class="card bg-base-100 shadow-xl">
                         <div class="card-body">
-                            <h2 class="card-title text-2xl">Top-notch Care</h2>
-                            <p class="text-lg">"The team at ModernSmile Dental truly cares about their patients. I wouldn't go anywhere else!"</p>
+                            <h2 class="card-title text-2xl">World-class Treatment</h2>
+                            <p class="text-lg">"The team at ModernSmile Dental truly values patient comfort. I wouldn't trust my smile to anyone else!"</p>
                             <div class="flex items-center mt-4">
                                 <div class="avatar">
                                     <div class="w-12 rounded-full">
-                                        <img src="https://i.pravatar.cc/150?img=5" alt="Sarah M." />
+                                        <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="Priya S." />
                                     </div>
                                 </div>
                                 <div class="ml-4">
-                                    <p class="font-semibold">Sarah M.</p>
+                                    <p class="font-semibold">Priya S.</p>
                                     <div class="rating rating-sm">
                                         <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
                                         <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
@@ -234,16 +317,16 @@
                     </div>
                     <div class="card bg-base-100 shadow-xl">
                         <div class="card-body">
-                            <h2 class="card-title text-2xl">Life-changing Results</h2>
-                            <p class="text-lg">"Thanks to ModernSmile Dental, I finally have the confidence to smile again!"</p>
+                            <h2 class="card-title text-2xl">Transformative Results</h2>
+                            <p class="text-lg">"Thanks to ModernSmile Dental, I finally have the confidence to flash my smile in every selfie!"</p>
                             <div class="flex items-center mt-4">
                                 <div class="avatar">
                                     <div class="w-12 rounded-full">
-                                        <img src="https://i.pravatar.cc/150?img=8" alt="Mike R." />
+                                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Amit P." />
                                     </div>
                                 </div>
                                 <div class="ml-4">
-                                    <p class="font-semibold">Mike R.</p>
+                                    <p class="font-semibold">Amit P.</p>
                                     <div class="rating rating-sm">
                                         <input type="radio" name="rating-3" class="mask mask-star-2 bg-orange-400" checked />
                                         <input type="radio" name="rating-3" class="mask mask-star-2 bg-orange-400" checked />
@@ -300,13 +383,14 @@
                         </div>
                         <div>
                             <h3 class="text-2xl font-semibold mb-4">Our Location</h3>
-                            <p class="mb-4 text-lg">123 Dental Street<br>Cityville, State 12345</p>
+                            <p class="mb-4 text-lg">#301 , First floor, 2nd Main Road,<br>East of NGEF Layout,<br>Kasturi
+                                Nagar , Bengaluru</p>
                             <h3 class="text-2xl font-semibold mb-4">Contact Information</h3>
-                            <p class="mb-2 text-lg"><strong>Phone:</strong> (123) 456-7890</p>
-                            <p class="mb-2 text-lg"><strong>Email:</strong> info@modernsmile.com</p>
+                            <p class="mb-2 text-lg"><strong>Phone:</strong> (+91) 9900379125</p>
+                            <p class="mb-2 text-lg"><strong>Email:</strong> kritilaxmijha@gmail.com</p>
                             <h3 class="text-2xl font-semibold mb-4 mt-8">Office Hours</h3>
-                            <p class="mb-2 text-lg">Monday - Friday: 9am - 6pm</p>
-                            <p class="mb-2 text-lg">Saturday: 10am - 4pm</p>
+                            <p class="mb-2 text-lg">Monday - Saturday: 10am - 8pm</p>
+                            <!-- <p class="mb-2 text-lg">Saturday: 10am - 4pm</p> -->
                             <p class="text-lg">Sunday: Closed</p>
                         </div>
                     </div>
@@ -406,52 +490,302 @@
      <!-- Service Modals -->
      <input type="checkbox" id="general-dentistry-modal" class="modal-toggle" />
      <div class="modal">
-         <div class="modal-box relative">
+         <div class="modal-box relative max-w-3xl">
              <label for="general-dentistry-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-             <h3 class="font-bold text-lg">General Dentistry</h3>
-             <p class="py-4">Our general dentistry services include routine check-ups, cleanings, fillings, and more. We focus on preventive care to keep your teeth healthy and strong.</p>
-             <div class="modal-action">
-                 <label for="booking-modal" class="btn btn-primary">Book Appointment</label>
+             <h3 class="font-bold text-2xl mb-4 flex items-center">
+                 <i class="fas fa-tooth text-primary mr-2"></i>
+                 General Dentistry
+             </h3>
+             <p class="py-2">Our comprehensive general dentistry services focus on preventive care and maintaining your overall oral health. We provide routine check-ups, cleanings, and treatments to keep your teeth and gums healthy and strong.</p>
+             
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                 <div class="bg-base-200 p-4 rounded-lg">
+                     <h4 class="font-semibold text-lg mb-2 flex items-center">
+                         <i class="fas fa-check-circle text-secondary mr-2"></i>
+                         Routine Check-ups
+                     </h4>
+                     <p>Regular examinations to detect and prevent potential oral health issues early.</p>
+                 </div>
+                 <div class="bg-base-200 p-4 rounded-lg">
+                     <h4 class="font-semibold text-lg mb-2 flex items-center">
+                         <i class="fas fa-brush text-secondary mr-2"></i>
+                         Professional Cleanings
+                     </h4>
+                     <p>Thorough cleaning to remove plaque and tartar, promoting healthy teeth and gums.</p>
+                 </div>
+                 <div class="bg-base-200 p-4 rounded-lg">
+                     <h4 class="font-semibold text-lg mb-2 flex items-center">
+                         <i class="fas fa-fill-drip text-secondary mr-2"></i>
+                         Dental Fillings
+                     </h4>
+                     <p>Restore decayed or damaged teeth with tooth-colored or metal fillings.</p>
+                 </div>
+                 <div class="bg-base-200 p-4 rounded-lg">
+                     <h4 class="font-semibold text-lg mb-2 flex items-center">
+                         <i class="fas fa-x-ray text-secondary mr-2"></i>
+                         Dental X-rays
+                     </h4>
+                     <p>Advanced imaging to diagnose hidden dental issues and plan treatments effectively.</p>
+                 </div>
+             </div>
+     
+             <div class="mt-6">
+                 <h4 class="font-semibold text-lg mb-2">Why Regular Dental Care is Important</h4>
+                 <ul class="list-disc list-inside">
+                     <li>Prevent cavities and gum disease</li>
+                     <li>Early detection of oral health issues</li>
+                     <li>Maintain fresh breath and a healthy smile</li>
+                     <li>Save money by avoiding costly treatments later</li>
+                     <li>Improve overall health and well-being</li>
+                 </ul>
+             </div>
+     
+             <div class="mt-6">
+                 <h4 class="font-semibold text-lg mb-2">Frequently Asked Questions</h4>
+                 <div class="space-y-2">
+                     <details class="bg-base-200 p-2 rounded-lg">
+                         <summary class="font-medium cursor-pointer">How often should I visit the dentist?</summary>
+                         <p class="mt-2 pl-4">We recommend visiting the dentist for a check-up and cleaning every six months. However, some patients may need more frequent visits based on their oral health needs.</p>
+                     </details>
+                     <details class="bg-base-200 p-2 rounded-lg">
+                         <summary class="font-medium cursor-pointer">Are dental X-rays safe?</summary>
+                         <p class="mt-2 pl-4">Yes, dental X-rays are safe. We use modern digital X-ray technology that emits very low levels of radiation. We also provide protective gear to ensure your safety during the process.</p>
+                     </details>
+                 </div>
+             </div>
+     
+             <div class="modal-action mt-6">
+                 <label for="booking-modal" class="btn btn-primary">
+                     <i class="fas fa-calendar-check mr-2"></i>
+                     Book Appointment
+                 </label>
              </div>
          </div>
      </div>
  
      <input type="checkbox" id="cosmetic-dentistry-modal" class="modal-toggle" />
-     <div class="modal">
-         <div class="modal-box relative">
-             <label for="cosmetic-dentistry-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-             <h3 class="font-bold text-lg">Cosmetic Dentistry</h3>
-             <p class="py-4">Transform your smile with our cosmetic dentistry services. We offer teeth whitening, veneers, bonding, and more to help you achieve the perfect smile.</p>
-             <div class="modal-action">
-                 <label for="booking-modal" class="btn btn-primary">Book Appointment</label>
-             </div>
-         </div>
-     </div>
+<div class="modal">
+    <div class="modal-box relative max-w-3xl">
+        <label for="cosmetic-dentistry-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <h3 class="font-bold text-2xl mb-4 flex items-center">
+            <i class="fas fa-magic text-primary mr-2"></i>
+            Cosmetic Dentistry
+        </h3>
+        <p class="py-2">Transform your smile with our advanced cosmetic dentistry services. We offer a range of treatments to enhance the appearance of your teeth and boost your confidence.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <div class="bg-base-200 p-4 rounded-lg">
+                <h4 class="font-semibold text-lg mb-2 flex items-center">
+                    <i class="fas fa-tint text-secondary mr-2"></i>
+                    Teeth Whitening
+                </h4>
+                <p>Professional-grade whitening treatments to brighten your smile by several shades.</p>
+            </div>
+            <div class="bg-base-200 p-4 rounded-lg">
+                <h4 class="font-semibold text-lg mb-2 flex items-center">
+                    <i class="fas fa-tooth text-secondary mr-2"></i>
+                    Porcelain Veneers
+                </h4>
+                <p>Custom-made thin shells to cover and improve the appearance of front teeth.</p>
+            </div>
+            <div class="bg-base-200 p-4 rounded-lg">
+                <h4 class="font-semibold text-lg mb-2 flex items-center">
+                    <i class="fas fa-paint-brush text-secondary mr-2"></i>
+                    Dental Bonding
+                </h4>
+                <p>Tooth-colored resin applied to repair chips, cracks, or gaps in teeth.</p>
+            </div>
+            <div class="bg-base-200 p-4 rounded-lg">
+                <h4 class="font-semibold text-lg mb-2 flex items-center">
+                    <i class="fas fa-crown text-secondary mr-2"></i>
+                    Smile Makeover
+                </h4>
+                <p>Comprehensive treatment plan combining multiple procedures for a complete smile transformation.</p>
+            </div>
+        </div>
+
+        <div class="mt-6">
+            <h4 class="font-semibold text-lg mb-2">Benefits of Cosmetic Dentistry</h4>
+            <ul class="list-disc list-inside">
+                <li>Enhance your smile's appearance</li>
+                <li>Boost self-confidence and self-esteem</li>
+                <li>Improve oral health and function</li>
+                <li>Long-lasting results with proper care</li>
+                <li>Customized treatments to meet your specific goals</li>
+            </ul>
+        </div>
+
+        <div class="mt-6">
+            <h4 class="font-semibold text-lg mb-2">Frequently Asked Questions</h4>
+            <div class="space-y-2">
+                <details class="bg-base-200 p-2 rounded-lg">
+                    <summary class="font-medium cursor-pointer">How long do cosmetic dentistry results last?</summary>
+                    <p class="mt-2 pl-4">The longevity of results varies depending on the procedure and your oral care habits. Teeth whitening may last 6-12 months, while veneers can last 10-15 years or more with proper care.</p>
+                </details>
+                <details class="bg-base-200 p-2 rounded-lg">
+                    <summary class="font-medium cursor-pointer">Is cosmetic dentistry covered by insurance?</summary>
+                    <p class="mt-2 pl-4">Most cosmetic procedures are considered elective and not covered by dental insurance. However, some treatments that also improve oral health may be partially covered. We offer flexible payment options to help make your desired treatments more accessible.</p>
+                </details>
+            </div>
+        </div>
+
+        <div class="modal-action mt-6">
+            <label for="booking-modal" class="btn btn-primary">
+                <i class="fas fa-calendar-check mr-2"></i>
+                Book Consultation
+            </label>
+        </div>
+    </div>
+</div>
  
      <input type="checkbox" id="dental-implants-modal" class="modal-toggle" />
      <div class="modal">
-         <div class="modal-box relative">
+         <div class="modal-box relative max-w-3xl">
              <label for="dental-implants-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-             <h3 class="font-bold text-lg">Dental Implants</h3>
-             <p class="py-4">Replace missing teeth with our state-of-the-art dental implants. They look, feel, and function just like natural teeth, restoring your smile and confidence.</p>
-             <div class="modal-action">
-                 <label for="booking-modal" class="btn btn-primary">Book Appointment</label>
+             <h3 class="font-bold text-2xl mb-4 flex items-center">
+                 <i class="fas fa-tooth text-primary mr-2"></i>
+                 Dental Implants
+             </h3>
+             <p class="py-2">Replace missing teeth with our state-of-the-art dental implants. They look, feel, and function just like natural teeth, restoring your smile and confidence.</p>
+             
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                 <div class="bg-base-200 p-4 rounded-lg">
+                     <h4 class="font-semibold text-lg mb-2 flex items-center">
+                         <i class="fas fa-teeth text-secondary mr-2"></i>
+                         Single Tooth Implants
+                     </h4>
+                     <p>Perfect for replacing individual missing teeth with a natural-looking solution.</p>
+                 </div>
+                 <div class="bg-base-200 p-4 rounded-lg">
+                     <h4 class="font-semibold text-lg mb-2 flex items-center">
+                         <i class="fas fa-teeth-open text-secondary mr-2"></i>
+                         Multiple Tooth Implants
+                     </h4>
+                     <p>Ideal for replacing several missing teeth, providing stability and functionality.</p>
+                 </div>
+                 <div class="bg-base-200 p-4 rounded-lg">
+                     <h4 class="font-semibold text-lg mb-2 flex items-center">
+                         <i class="fas fa-smile text-secondary mr-2"></i>
+                         Full Arch Implants
+                     </h4>
+                     <p>A complete solution for those needing to replace all teeth in the upper or lower jaw.</p>
+                 </div>
+                 <div class="bg-base-200 p-4 rounded-lg">
+                     <h4 class="font-semibold text-lg mb-2 flex items-center">
+                         <i class="fas fa-clock text-secondary mr-2"></i>
+                         Same-Day Implants
+                     </h4>
+                     <p>Get your new smile in just one day with our advanced same-day implant technology.</p>
+                 </div>
+             </div>
+     
+             <div class="mt-6">
+                 <h4 class="font-semibold text-lg mb-2">Benefits of Dental Implants</h4>
+                 <ul class="list-disc list-inside">
+                     <li>Look and function like natural teeth</li>
+                     <li>Prevent bone loss and maintain facial structure</li>
+                     <li>Improve ability to eat and speak</li>
+                     <li>Long-lasting solution with proper care</li>
+                     <li>Boost confidence and overall quality of life</li>
+                 </ul>
+             </div>
+     
+             <div class="mt-6">
+                 <h4 class="font-semibold text-lg mb-2">Frequently Asked Questions</h4>
+                 <div class="space-y-2">
+                     <details class="bg-base-200 p-2 rounded-lg">
+                         <summary class="font-medium cursor-pointer">How long does the implant process take?</summary>
+                         <p class="mt-2 pl-4">The entire process typically takes 3-6 months, depending on individual healing times. However, we also offer same-day implant options for suitable candidates.</p>
+                     </details>
+                     <details class="bg-base-200 p-2 rounded-lg">
+                         <summary class="font-medium cursor-pointer">Are dental implants painful?</summary>
+                         <p class="mt-2 pl-4">The procedure is performed under local anesthesia, so you shouldn't feel pain during the surgery. Some discomfort during healing is normal but can be managed with over-the-counter pain medication.</p>
+                     </details>
+                 </div>
+             </div>
+     
+             <div class="modal-action mt-6">
+                 <label for="booking-modal" class="btn btn-primary">
+                     <i class="fas fa-calendar-check mr-2"></i>
+                     Book Consultation
+                 </label>
              </div>
          </div>
      </div>
  
      <input type="checkbox" id="orthodontics-modal" class="modal-toggle" />
-     <div class="modal">
-         <div class="modal-box relative">
-             <label for="orthodontics-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-             <h3 class="font-bold text-lg">Orthodontics</h3>
-             <p class="py-4">Straighten your teeth and improve your bite with our orthodontic treatments. We offer traditional braces, clear aligners, and more.</p>
-             <div class="modal-action">
-                 <label for="booking-modal" class="btn btn-primary">Book Appointment</label>
-             </div>
-         </div>
-     </div>
- 
+<div class="modal">
+    <div class="modal-box relative max-w-3xl">
+        <label for="orthodontics-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <h3 class="font-bold text-2xl mb-4 flex items-center">
+            <i class="fas fa-teeth-open text-primary mr-2"></i>
+            Orthodontics
+        </h3>
+        <p class="py-2">Straighten your teeth and improve your bite with our advanced orthodontic treatments. We offer a range of options to suit your needs and lifestyle.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <div class="bg-base-200 p-4 rounded-lg">
+                <h4 class="font-semibold text-lg mb-2 flex items-center">
+                    <i class="fas fa-braces text-secondary mr-2"></i>
+                    Traditional Braces
+                </h4>
+                <p>Effective and time-tested method for straightening teeth and correcting bite issues.</p>
+            </div>
+            <div class="bg-base-200 p-4 rounded-lg">
+                <h4 class="font-semibold text-lg mb-2 flex items-center">
+                    <i class="fas fa-teeth text-secondary mr-2"></i>
+                    Clear Aligners
+                </h4>
+                <p>Invisible, removable trays that gradually straighten teeth without metal brackets or wires.</p>
+            </div>
+            <div class="bg-base-200 p-4 rounded-lg">
+                <h4 class="font-semibold text-lg mb-2 flex items-center">
+                    <i class="fas fa-smile-beam text-secondary mr-2"></i>
+                    Lingual Braces
+                </h4>
+                <p>Braces placed on the back of teeth, offering a discreet orthodontic option.</p>
+            </div>
+            <div class="bg-base-200 p-4 rounded-lg">
+                <h4 class="font-semibold text-lg mb-2 flex items-center">
+                    <i class="fas fa-clock text-secondary mr-2"></i>
+                    Accelerated Orthodontics
+                </h4>
+                <p>Advanced techniques to speed up tooth movement and reduce treatment time.</p>
+            </div>
+        </div>
+
+        <div class="mt-6">
+            <h4 class="font-semibold text-lg mb-2">Why Choose Our Orthodontic Services?</h4>
+            <ul class="list-disc list-inside">
+                <li>Experienced orthodontists with advanced training</li>
+                <li>Customized treatment plans for each patient</li>
+                <li>State-of-the-art technology for precise diagnostics and treatment</li>
+                <li>Flexible payment options and insurance coordination</li>
+            </ul>
+        </div>
+
+        <div class="mt-6">
+            <h4 class="font-semibold text-lg mb-2">Frequently Asked Questions</h4>
+            <div class="space-y-2">
+                <details class="bg-base-200 p-2 rounded-lg">
+                    <summary class="font-medium cursor-pointer">How long does orthodontic treatment take?</summary>
+                    <p class="mt-2 pl-4">Treatment duration varies depending on the individual case, but typically ranges from 12 to 36 months. We offer accelerated options that may reduce treatment time for suitable candidates.</p>
+                </details>
+                <details class="bg-base-200 p-2 rounded-lg">
+                    <summary class="font-medium cursor-pointer">Are there age limits for orthodontic treatment?</summary>
+                    <p class="mt-2 pl-4">No, orthodontic treatment can be beneficial at any age. We treat children, teenagers, and adults, tailoring our approach to each age group's specific needs.</p>
+                </details>
+            </div>
+        </div>
+
+        <div class="modal-action mt-6">
+            <label for="booking-modal" class="btn btn-primary">
+                <i class="fas fa-calendar-check mr-2"></i>
+                Book Consultation
+            </label>
+        </div>
+    </div>
+</div>
      <!-- Legal Modals -->
      <input type="checkbox" id="terms-modal" class="modal-toggle" />
      <div class="modal">
